@@ -8,14 +8,17 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.quiz.history.HistoryFragment;
 import com.example.quiz.R;
 import com.example.quiz.settings.SettingsFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     private MainPagerAdapter adapter;
     private ViewPager pager;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,33 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.main_view_pager);
         adapter = new MainPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(adapter);
+
+        bottomNav = findViewById(R.id.main_bottom_nav);
+        bottomNav.setOnNavigationItemSelectedListener(this);
+
+        pager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                bottomNav.getMenu().getItem(position).setChecked(true);
+            }
+        });
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int page = 0;
+        switch (item.getItemId()){
+            case R.id.bn_history:
+                page = 1;
+                break;
+            case R.id.bn_settings:
+                page = 2;
+                break;
+        }
+        pager.setCurrentItem(page);
+        return true;
+    }
+
 
 
     private class MainPagerAdapter extends FragmentPagerAdapter {
