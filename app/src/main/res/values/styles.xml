@@ -11,5 +11,34 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="TitleText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">@dimen/big</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginLeft">@dimen/med</item>
+        <item name="android:layout_marginTop">@dimen/margin_big</item>
+        <item name="android:layout_marginBottom">@dimen/margin_big</item>
+    </style>
+    <style name="TextInfo">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_marginLeft">67dp</item>
+        <item name="android:layout_marginTop">@dimen/margin_big</item>
+        <item name="android:layout_marginBottom">@dimen/med</item>
+    </style>
+    <style name="TextInfo2">
+        <item name="android:textSize">@dimen/med</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginTop">@dimen/margin_big</item>
+    </style>
+    <style name="ButtonStart">
+        <item name="android:background">@color/colorBlue</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_marginTop">@dimen/margin_big2</item>
+    </style>
+
 
 </resources>

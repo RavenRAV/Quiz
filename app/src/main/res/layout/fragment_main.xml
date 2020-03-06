@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".main.MainFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz"
+        style="@style/TitleText" />
+    <ImageView
+        android:layout_width="@dimen/img_width"
+        android:layout_height="@dimen/img_height"
+        android:layout_gravity="center"
+        android:src="@drawable/img_main_quiz"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/questions_amount"
+            style="@style/TextInfo"/>
+        <TextView
+            android:id="@+id/q_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10"
+            style="@style/TextInfo2"/>
+    </LinearLayout>
+    <SeekBar
+        android:id="@+id/seek_bar_fm"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:max="50"
+        android:progress="5" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/category"
+        style="@style/TextInfo"/>
+
+    <Spinner
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:entries="@array/Category_array"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/difficulty"
+        style="@style/TextInfo"/>
+    <Spinner
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:entries="@array/Difficulty_array"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="@string/start"
+        android:layout_gravity="center"
+        style="@style/ButtonStart"/>
+
+
+
+</LinearLayout>
