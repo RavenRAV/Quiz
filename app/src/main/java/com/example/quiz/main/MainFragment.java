@@ -47,13 +47,20 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         seekBar = view.findViewById(R.id.seek_bar_fm);
         textView = view.findViewById(R.id.q_amount);
+        textView.setText("5");
 
         seekBar.setOnSeekBarChangeListener(new SimpleOnSeekBarChangeListener() {
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                super.onStopTrackingTouch(seekBar);
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                super.onProgressChanged(seekBar, progress, fromUser);
                 textView.setText(String.valueOf(seekBar.getProgress()));
             }
+
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                super.onStopTrackingTouch(seekBar);
+//                textView.setText(String.valueOf(seekBar.getProgress()));
+//            }
         });
 
 

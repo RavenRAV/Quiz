@@ -10,10 +10,15 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.quiz.data.remote.IQuizApiClient;
+import com.example.quiz.data.remote.QuizApiClient;
 import com.example.quiz.history.HistoryFragment;
 import com.example.quiz.R;
+import com.example.quiz.model.Question;
 import com.example.quiz.settings.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     private MainPagerAdapter adapter;
@@ -36,6 +41,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             @Override
             public void onPageSelected(int position) {
                 bottomNav.getMenu().getItem(position).setChecked(true);
+            }
+        });
+
+        new QuizApiClient().getQuestions(new IQuizApiClient.QuestionsCallback() {
+            @Override
+            public void onSuccess(List<Question> questions) {
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
             }
         });
     }
