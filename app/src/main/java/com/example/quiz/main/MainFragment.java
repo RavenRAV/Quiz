@@ -10,11 +10,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.quiz.R;
+import com.example.quiz.quiz.QuizActivity;
 import com.example.quiz.utils.SimpleOnSeekBarChangeListener;
 
 
@@ -24,6 +26,7 @@ import com.example.quiz.utils.SimpleOnSeekBarChangeListener;
 public class MainFragment extends Fragment {
     private SeekBar seekBar;
     private TextView textView;
+    private int min = 5;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -47,20 +50,24 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         seekBar = view.findViewById(R.id.seek_bar_fm);
         textView = view.findViewById(R.id.q_amount);
-        textView.setText("5");
+        textView.setText(String.valueOf(min));
+
+        view.findViewById(R.id.b_start).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QuizActivity.start(getActivity());
+            }
+        });
 
         seekBar.setOnSeekBarChangeListener(new SimpleOnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 super.onProgressChanged(seekBar, progress, fromUser);
+                if(progress < min)
+                seekBar.setProgress(min);
+
                 textView.setText(String.valueOf(seekBar.getProgress()));
             }
-
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                super.onStopTrackingTouch(seekBar);
-//                textView.setText(String.valueOf(seekBar.getProgress()));
-//            }
         });
 
 

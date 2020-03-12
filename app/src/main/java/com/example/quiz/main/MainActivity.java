@@ -9,12 +9,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.quiz.data.remote.IQuizApiClient;
 import com.example.quiz.data.remote.QuizApiClient;
 import com.example.quiz.history.HistoryFragment;
 import com.example.quiz.R;
 import com.example.quiz.model.Question;
+import com.example.quiz.quiz.QuizActivity;
 import com.example.quiz.settings.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 bottomNav.getMenu().getItem(position).setChecked(true);
             }
         });
+
 
         new QuizApiClient().getQuestions(new IQuizApiClient.QuestionsCallback() {
             @Override
