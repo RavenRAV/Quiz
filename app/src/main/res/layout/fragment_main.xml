@@ -38,8 +38,7 @@
         android:id="@+id/seek_bar_fm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/SeekBar"
-        android:min="5" />
+        style="@style/SeekBar" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,6 +63,7 @@
         style="@style/TextAppearance.AppCompat.Widget.DropDownItem"
         android:entries="@array/Difficulty_array"/>
     <Button
+        android:id="@+id/b_start"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:text="@string/start"

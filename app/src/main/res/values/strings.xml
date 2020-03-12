@@ -7,4 +7,6 @@
     <string name="category">Category</string>
     <string name="difficulty">Difficulty</string>
     <string name="start">Start</string>
+    <string name="history">History</string>
+    <string name="settings">Settings</string>
 </resources>
