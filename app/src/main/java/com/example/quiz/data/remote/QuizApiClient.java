@@ -1,5 +1,7 @@
 package com.example.quiz.data.remote;
 
+import com.example.quiz.core.CoreCallback;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,25 +23,37 @@ public class QuizApiClient implements IQuizApiClient{
     public void getQuestions(final QuestionsCallback callback){
         Call<QuestionsResponse> call = client.getQuestions(10);
 
-        call.enqueue(new Callback<QuestionsResponse>() {
+        call.enqueue(new CoreCallback<QuestionsResponse>() {
             @Override
-            public void onResponse(Call<QuestionsResponse> call, Response<QuestionsResponse> response) {
-                if(response.isSuccessful()){
-                    if(response.body() != null){
-                        callback.onSuccess(response.body().getResults());
-                    }else {
-                        callback.onFailure(new Exception("Body is empty"));
-                    }
-                }else {
-                    callback.onFailure(new Exception("Response error: "+ response.code()));
-                }
+            public void onSuccess(QuestionsResponse result) {
+                callback.onSuccess(result.getResults());
             }
 
             @Override
-            public void onFailure(Call<QuestionsResponse> call, Throwable t) {
-                callback.onFailure(new Exception(t));
+            public void onFailure(Exception e) {
+                callback.onFailure(e);
             }
         });
+
+//        call.enqueue(new Callback<QuestionsResponse>() {
+//            @Override
+//            public void onResponse(Call<QuestionsResponse> call, Response<QuestionsResponse> response) {
+//                if(response.isSuccessful()){
+//                    if(response.body() != null){
+//                        callback.onSuccess(response.body().getResults());
+//                    }else {
+//                        callback.onFailure(new Exception("Body is empty"));
+//                    }
+//                }else {
+//                    callback.onFailure(new Exception("Response error: "+ response.code()));
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<QuestionsResponse> call, Throwable t) {
+//                callback.onFailure(new Exception(t));
+//            }
+//        });
     }
 
 
