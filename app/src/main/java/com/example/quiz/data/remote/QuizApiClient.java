@@ -21,7 +21,7 @@ public class QuizApiClient implements IQuizApiClient{
 
     @Override
     public void getQuestions(final QuestionsCallback callback){
-        Call<QuestionsResponse> call = client.getQuestions(10);
+        Call<QuestionsResponse> call = client.getQuestions(5, 0, "any");
 
         call.enqueue(new CoreCallback<QuestionsResponse>() {
             @Override
@@ -60,9 +60,23 @@ public class QuizApiClient implements IQuizApiClient{
     private interface QuizApi{
         @GET("/api.php")
         Call<QuestionsResponse>getQuestions(
-                @Query("amount") int amount
+                @Query("amount") int amount,
+                @Query("category")Integer category,
+                @Query("difficulty")String difficulty
 
 
         );
+
+    @GET("/api_category.php")
+    Call<QuestionsResponse>categoryLookup();
+
+    @GET("/api_count.php")
+        Call<QuestionsResponse>categoryQuestionCountLookup(
+                @Query("category")Integer categoryId
+    );
+
+    @GET("/api_count_global.php")
+        Call<QuestionsResponse>globalQuestionCountLookup();
+
     }
 }
