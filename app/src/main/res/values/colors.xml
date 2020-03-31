@@ -7,7 +7,8 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorPink">#BE52F2</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorLightGray">#A9A9A9</color>
+    <color name="colorLightGray">#E9E9E9</color>
+    <color name="colorLightGray2">#A9A9A9</color>
     <color name="colorBlue">#5774FF</color>
     <color name="colorButton">#6979F8</color>
 

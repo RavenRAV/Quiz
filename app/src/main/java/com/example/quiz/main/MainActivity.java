@@ -8,10 +8,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.quiz.App;
 import com.example.quiz.data.remote.IQuizApiClient;
 import com.example.quiz.data.remote.QuizApiClient;
 import com.example.quiz.history.HistoryFragment;
@@ -33,12 +35,38 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        User user = new User("blabla");
+        user.setNameChangeListener(new User.NameChangeListener() {
+            @Override
+            public void onChanged(String newName) {
+                Log.e("qwe", newName );
+
+            }
+        });
+        user.setName("newName");
+
+
         pager = findViewById(R.id.main_view_pager);
         adapter = new MainPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(adapter);
 
         bottomNav = findViewById(R.id.main_bottom_nav);
         bottomNav.setOnNavigationItemSelectedListener(this);
+
+        App.quizRepository.getQuestions(new IQuizApiClient.QuestionsCallback() {
+            @Override
+            public void onSuccess(List<Question> questions) {
+                for (Question question: questions) {
+                    Log.d("qwe", question.getQuestion()+" "+ question.getType());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+        });
 
         pager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override

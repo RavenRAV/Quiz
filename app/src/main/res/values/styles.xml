@@ -23,7 +23,7 @@
     <style name="TextInfo">
         <item name="android:textSize">@dimen/text_info</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/colorLightGray</item>
+        <item name="android:textColor">@color/colorLightGray2</item>
         <item name="android:layout_marginLeft">@dimen/margin_left</item>
         <item name="android:layout_marginTop">@dimen/margin_big</item>
         <item name="android:layout_marginBottom">@dimen/med</item>
@@ -46,6 +46,38 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:max">50</item>
         <item name="android:progress">5</item>
+    </style>
+    <style name="SettingsText">
+        <item name="android:paddingTop">@dimen/padding_settings</item>
+        <item name="android:paddingBottom">@dimen/padding_settings</item>
+        <item name="android:paddingStart">@dimen/padding_settings_end</item>
+        <item name="android:paddingEnd">@dimen/padding_settings_end</item>
+        <item name="android:textSize">@dimen/text_settings</item>
+        <item name="android:drawableRight">@drawable/chevron_right</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+    <style name="SettingsText2">
+        <item name="android:paddingTop">@dimen/padding_settings</item>
+        <item name="android:paddingBottom">@dimen/padding_settings</item>
+        <item name="android:paddingStart">@dimen/padding_settings_end</item>
+        <item name="android:paddingEnd">@dimen/padding_settings_end</item>
+        <item name="android:textSize">@dimen/text_settings</item>
+        <item name="android:drawableRight">@drawable/chevron_right</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="SettingsText3">
+        <item name="android:paddingTop">@dimen/padding_settings</item>
+        <item name="android:paddingBottom">@dimen/padding_settings</item>
+        <item name="android:paddingStart">@dimen/padding_settings_end</item>
+        <item name="android:paddingEnd">@dimen/padding_settings_end</item>
+        <item name="android:textSize">@dimen/text_settings</item>
+        <item name="android:drawableRight">@drawable/chevron_right</item>
+        <item name="android:textColor">@color/colorPink</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
     </style>
 
 

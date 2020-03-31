@@ -6,10 +6,51 @@
     android:orientation="vertical"
     tools:context=".settings.SettingsFragment">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings"
         style="@style/TitleText"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorLightGray"/>
+    <TextView
+        android:text="@string/share_this_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsText2" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorLightGray"/>
+    <TextView
+        android:text="@string/rate_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsText2"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorLightGray"/>
+    <TextView
+        android:text="@string/leave_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsText2"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorLightGray"/>
+    <TextView
+        android:text="Clear History"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsText3"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorLightGray"/>
 
 </LinearLayout>
